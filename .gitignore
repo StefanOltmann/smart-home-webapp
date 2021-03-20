@@ -1,0 +1,10 @@
+.gradle
+.idea
+auth_code.txt
+build/
+node_modules/
+out
+pnpmfile.js
+server_url.txt
+target
+webpack.generated.js
