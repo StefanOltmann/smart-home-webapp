@@ -1,6 +1,7 @@
 # Stefans Smart Home WebApp
 
 [![CI](https://github.com/StefanOltmann/smart-home-webapp/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/StefanOltmann/smart-home-webapp/actions/workflows/ci.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/stefanoltmann/smart-home-webapp/badge)](https://www.codefactor.io/repository/github/stefanoltmann/smart-home-webapp)
 
 **PROTOYPE**
 
