@@ -113,8 +113,6 @@ class DeviceForm(groups: List<DeviceGroup>) : FormLayout() {
 
     public override fun <T : ComponentEvent<*>?> addListener(
         eventType: Class<T>, listener: ComponentEventListener<T>
-    ): Registration {
+    ): Registration = eventBus.addListener(eventType, listener)
 
-        return eventBus.addListener(eventType, listener)
-    }
 }

@@ -20,35 +20,20 @@ package de.stefan_oltmann.smarthome.webapp.backend.service
 import de.stefan_oltmann.smarthome.webapp.backend.data.DeviceGroupRepository
 import de.stefan_oltmann.smarthome.webapp.backend.data.DeviceRepository
 import de.stefan_oltmann.smarthome.webapp.backend.model.Device
-import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceGroup
 import de.stefan_oltmann.smarthome.webapp.backend.model.DevicePowerState
 import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceState
-import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceType
 import de.stefan_oltmann.smarthome.webapp.backend.network.RestApi
 import de.stefan_oltmann.smarthome.webapp.backend.network.RestApiClientFactory
 import org.springframework.stereotype.Service
 import java.io.File
-import java.util.Random
 import java.util.logging.Level
 import java.util.logging.Logger
-import java.util.stream.Collectors
-import java.util.stream.Stream
-import javax.annotation.PostConstruct
 
 @Service
 class DeviceService(
     private val deviceRepository: DeviceRepository,
     private val deviceGroupRepository: DeviceGroupRepository
 ) {
-
-    companion object {
-
-        private val logger = Logger.getLogger(DeviceService::class.java.name)
-
-        // TODO FIXME Temporary solution for loading settings
-        private val baseUrl = File("server_url.txt").readText()
-        private val authCode = File("auth_code.txt").readText()
-    }
 
     private val restApi: RestApi = RestApiClientFactory.createRestApiClient(baseUrl, authCode)
 
@@ -127,34 +112,14 @@ class DeviceService(
             logger.log(Level.SEVERE, "Device has no ID: $device")
     }
 
-    @PostConstruct
-    fun populateTestData() {
+    companion object {
 
-        if (deviceGroupRepository.count() == 0L) {
-            deviceGroupRepository.saveAll(
-                Stream.of("Kitchen", "Living Room", "Bedroom")
-                    .map { name: String? -> DeviceGroup(name!!) }
-                    .collect(Collectors.toList()))
-        }
+        private val logger = Logger.getLogger(DeviceService::class.java.name)
 
-        if (deviceRepository.count() == 0L) {
-            val r = Random(0)
-            val deviceGroups = deviceGroupRepository.findAll()
-            deviceRepository.saveAll(
-                Stream.of(
-                    "Switch 1", "Switch 2", "Switch 3", "Switch 4",
-                    "Dimmer 1", "Dimmer 2", "Dimmer 3", "Dimmer 4", "Dimmer 5",
-                    "Roller shutter 1", "Roller shutter 2"
-                )
-                    .map { name: String ->
-                        val id = name.toLowerCase().replace(" ".toRegex(), "_")
-                        val device = Device(id)
-                        device.name = name
-                        device.group = deviceGroups[r.nextInt(deviceGroups.size)]
-                        device.type = DeviceType.values()[r.nextInt(DeviceType.values().size)]
-                        device
-                    }.collect(Collectors.toList())
-            )
-        }
+        /*
+         * For now the configuration is loaded from text files.
+         */
+        private val baseUrl = File("server_url.txt").readText()
+        private val authCode = File("auth_code.txt").readText()
     }
 }

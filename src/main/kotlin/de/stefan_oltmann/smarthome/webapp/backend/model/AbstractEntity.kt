@@ -45,7 +45,6 @@ abstract class AbstractEntity {
         return true
     }
 
-    override fun hashCode(): Int {
-        return id?.hashCode() ?: 0
-    }
+    override fun hashCode(): Int = id?.hashCode() ?: 0
+
 }

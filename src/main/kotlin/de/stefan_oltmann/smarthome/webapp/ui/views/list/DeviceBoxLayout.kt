@@ -46,6 +46,9 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
         private const val BOX_SIZE_PX = 160
         private const val ICON_SIZE_PX = 48
+
+        private const val TEMPERATURE_STEP = 1
+        private const val PERCENT_STEP = 10
     }
 
     init {
@@ -114,7 +117,7 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
                 minusButton.addClickListener {
 
-                    currentTargetTemperature = 10.coerceAtLeast(currentTargetTemperature - 1)
+                    currentTargetTemperature = 10.coerceAtLeast(currentTargetTemperature - TEMPERATURE_STEP)
 
                     callback.onDeviceTargetTemperatureChanged(device, currentTargetTemperature)
 
@@ -123,7 +126,7 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
                 plusButton.addClickListener {
 
-                    currentTargetTemperature = 30.coerceAtMost(currentTargetTemperature + 1)
+                    currentTargetTemperature = 30.coerceAtMost(currentTargetTemperature + TEMPERATURE_STEP)
 
                     callback.onDeviceTargetTemperatureChanged(device, currentTargetTemperature)
 
@@ -134,7 +137,7 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
                 minusButton.addClickListener {
 
-                    currentPercentage = 0.coerceAtLeast(currentPercentage - 10)
+                    currentPercentage = 0.coerceAtLeast(currentPercentage - PERCENT_STEP)
 
                     callback.onDevicePercentageChanged(device, currentPercentage)
 
@@ -143,7 +146,7 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
                 plusButton.addClickListener {
 
-                    currentPercentage = 100.coerceAtMost(currentPercentage + 10)
+                    currentPercentage = 100.coerceAtMost(currentPercentage + PERCENT_STEP)
 
                     callback.onDevicePercentageChanged(device, currentPercentage)
 

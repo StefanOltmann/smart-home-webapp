@@ -53,9 +53,7 @@ class Device : Cloneable {
         this.id = id
     }
 
-    override fun toString(): String {
-        return name
-    }
+    override fun toString() = name
 
     override fun equals(other: Any?): Boolean {
 
@@ -73,7 +71,6 @@ class Device : Cloneable {
         return true
     }
 
-    override fun hashCode(): Int {
-        return id?.hashCode() ?: 0
-    }
+    override fun hashCode() = id?.hashCode() ?: 0
+
 }

@@ -20,7 +20,6 @@ package de.stefan_oltmann.smarthome.webapp.ui.views.login
 import com.vaadin.flow.component.html.H1
 import com.vaadin.flow.component.login.LoginForm
 import com.vaadin.flow.component.orderedlayout.FlexComponent
-import com.vaadin.flow.component.orderedlayout.FlexComponent.JustifyContentMode
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.BeforeEnterEvent
 import com.vaadin.flow.router.BeforeEnterObserver
@@ -33,23 +32,23 @@ class LoginView : VerticalLayout(), BeforeEnterObserver {
 
     private val loginForm = LoginForm()
 
-    override fun beforeEnter(beforeEnterEvent: BeforeEnterEvent) {
-
-        if (beforeEnterEvent.location.queryParameters.parameters.containsKey("error"))
-            loginForm.isError = true
-    }
-
     init {
 
         addClassName("login-view")
         setSizeFull()
 
-        justifyContentMode = JustifyContentMode.CENTER
+        justifyContentMode = FlexComponent.JustifyContentMode.CENTER
         alignItems = FlexComponent.Alignment.CENTER
 
         loginForm.isForgotPasswordButtonVisible = false
         loginForm.action = "login"
 
         add(H1("Stefans Smart Home"), loginForm)
+    }
+
+    override fun beforeEnter(beforeEnterEvent: BeforeEnterEvent) {
+
+        if (beforeEnterEvent.location.queryParameters.parameters.containsKey("error"))
+            loginForm.isError = true
     }
 }

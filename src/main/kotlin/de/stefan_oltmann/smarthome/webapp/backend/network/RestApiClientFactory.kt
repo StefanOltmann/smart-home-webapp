@@ -95,9 +95,8 @@ object RestApiClientFactory {
             /* No exception -> Server is trusted. */
         }
 
-        override fun getAcceptedIssuers(): Array<X509Certificate> {
-            return emptyArray()
-        }
+        override fun getAcceptedIssuers(): Array<X509Certificate> = emptyArray()
+
     }
 
     /**
@@ -105,10 +104,6 @@ object RestApiClientFactory {
      * to the backend API that the request comes from this source.
      */
     private class AuthCodeHeaderInterceptor(private val authCode: String) : Interceptor {
-
-        companion object {
-            const val HEADER_KEY_AUTH_CODE = "AUTH_CODE"
-        }
 
         override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
 
@@ -120,6 +115,10 @@ object RestApiClientFactory {
                 .build()
 
             return chain.proceed(modifiedRequest)
+        }
+
+        companion object {
+            const val HEADER_KEY_AUTH_CODE = "AUTH_CODE"
         }
     }
 }

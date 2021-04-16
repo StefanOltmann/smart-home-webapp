@@ -32,14 +32,6 @@ import org.springframework.security.web.util.matcher.RequestMatcher
 @Configuration
 open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
 
-    companion object {
-
-        private const val LOGIN_PROCESSING_URL = "/login"
-        private const val LOGIN_FAILURE_URL = "/login?error"
-        private const val LOGIN_URL = LOGIN_PROCESSING_URL
-        private const val LOGOUT_SUCCESS_URL = LOGIN_PROCESSING_URL
-    }
-
     /**
      * Require login to access internal pages and configure login form.
      */
@@ -114,5 +106,13 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
             // (development mode) H2 debugging console
             "/h2-console/**"
         )
+    }
+
+    companion object {
+
+        private const val LOGIN_PROCESSING_URL = "/login"
+        private const val LOGIN_FAILURE_URL = "/login?error"
+        private const val LOGIN_URL = LOGIN_PROCESSING_URL
+        private const val LOGOUT_SUCCESS_URL = LOGIN_PROCESSING_URL
     }
 }

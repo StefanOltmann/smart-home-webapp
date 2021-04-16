@@ -50,20 +50,6 @@ import java.util.Optional
 @CssImport("./styles/shared-styles.css")
 class MainLayout : AppLayout() {
 
-    companion object {
-
-        private fun createTab(text: String, navigationTarget: Class<out Component>): Tab {
-
-            val tab = Tab()
-
-            tab.add(RouterLink(text, navigationTarget))
-
-            ComponentUtil.setData(tab, Class::class.java, navigationTarget)
-
-            return tab
-        }
-    }
-
     private val menu: Tabs
     private val viewTitle: H1 = H1()
 
@@ -156,7 +142,21 @@ class MainLayout : AppLayout() {
 
     private fun getTabForComponent(component: Component): Optional<Tab> {
         return menu.children
-            .filter { tab -> (ComponentUtil.getData(tab, Class::class.java) == component.javaClass) }
+            .filter { tab -> ComponentUtil.getData(tab, Class::class.java) == component.javaClass }
             .findFirst().map { firstComponent -> Tab::class.java.cast(firstComponent) }
+    }
+
+    companion object {
+
+        private fun createTab(text: String, navigationTarget: Class<out Component>): Tab {
+
+            val tab = Tab()
+
+            tab.add(RouterLink(text, navigationTarget))
+
+            ComponentUtil.setData(tab, Class::class.java, navigationTarget)
+
+            return tab
+        }
     }
 }

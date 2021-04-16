@@ -26,6 +26,12 @@ import javax.validation.constraints.NotNull
 @Entity
 class DeviceGroup : AbstractEntity {
 
+    @NotNull
+    var name: String = ""
+
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+    val devices: List<Device> = LinkedList()
+
     private constructor() {
         /* Default for JPA */
     }
@@ -33,11 +39,4 @@ class DeviceGroup : AbstractEntity {
     constructor(name: String) {
         this.name = name
     }
-
-    @NotNull
-    var name: String = ""
-
-    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
-    val devices: List<Device> = LinkedList()
-
 }
