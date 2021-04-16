@@ -30,7 +30,7 @@ a[highlight] {
 .device-name-span {
   border-style: dotted;
   border-color: #3D3D3D;
-  border-width: 0.125rem 0 0.125rem 0;
+  border-width: 0.125rem 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -38,11 +38,11 @@ a[highlight] {
 }
 
 .device-options-box {
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 .power-state-toggle {
-  margin: 0.75rem 0 0 0;
+  margin: 0.75rem 0 0;
 }
 
 .percentage-button {
