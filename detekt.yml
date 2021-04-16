@@ -285,10 +285,10 @@ formatting:
     active: true
     autoCorrect: true
   MultiLineIfElse:
-    active: true
+    active: false
     autoCorrect: true
   NoBlankLineBeforeRbrace:
-    active: true
+    active: false
     autoCorrect: true
   NoConsecutiveBlankLines:
     active: true
@@ -323,7 +323,9 @@ formatting:
   NoWildcardImports:
     active: true
   PackageName:
-    active: true
+    # Package name contains underscores
+    # PackageNaming is configured instead.
+    active: false
     autoCorrect: true
   ParameterListWrapping:
     active: true
