@@ -19,12 +19,16 @@ package de.stefan_oltmann.smarthome.webapp.backend.service
 
 import de.stefan_oltmann.smarthome.webapp.backend.data.DeviceGroupRepository
 import de.stefan_oltmann.smarthome.webapp.backend.data.DeviceRepository
-import de.stefan_oltmann.smarthome.webapp.backend.model.*
+import de.stefan_oltmann.smarthome.webapp.backend.model.Device
+import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceGroup
+import de.stefan_oltmann.smarthome.webapp.backend.model.DevicePowerState
+import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceState
+import de.stefan_oltmann.smarthome.webapp.backend.model.DeviceType
 import de.stefan_oltmann.smarthome.webapp.backend.network.RestApi
 import de.stefan_oltmann.smarthome.webapp.backend.network.RestApiClientFactory
 import org.springframework.stereotype.Service
 import java.io.File
-import java.util.*
+import java.util.Random
 import java.util.logging.Level
 import java.util.logging.Logger
 import java.util.stream.Collectors

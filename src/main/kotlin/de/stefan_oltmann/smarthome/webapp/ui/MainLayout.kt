@@ -39,7 +39,7 @@ import com.vaadin.flow.router.RouterLink
 import com.vaadin.flow.server.PWA
 import de.stefan_oltmann.smarthome.webapp.ui.views.dashboard.DashboardView
 import de.stefan_oltmann.smarthome.webapp.ui.views.list.ListView
-import java.util.*
+import java.util.Optional
 
 @PWA(
     name = "Stefans Smart Home",

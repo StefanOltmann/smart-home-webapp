@@ -17,7 +17,7 @@
  */
 package de.stefan_oltmann.smarthome.webapp.backend.model
 
-import java.util.*
+import java.util.LinkedList
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.OneToMany
