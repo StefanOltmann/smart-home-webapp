@@ -49,38 +49,38 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
         // Not using Spring CSRF here to be able to use plain HTML for the login page
         http.csrf().disable()
 
-                // Register our CustomRequestCache, that saves unauthorized access attempts, so
-                // the user is redirected after login.
-                .requestCache().requestCache(CustomRequestCache()) // Restrict access to our application.
-                .and().authorizeRequests()
+            // Register our CustomRequestCache, that saves unauthorized access attempts, so
+            // the user is redirected after login.
+            .requestCache().requestCache(CustomRequestCache()) // Restrict access to our application.
+            .and().authorizeRequests()
 
-                // Allow all Vaadin internal requests.
-                .requestMatchers(RequestMatcher { request -> SecurityUtils.isFrameworkInternalRequest(request) })
-                .permitAll()
+            // Allow all Vaadin internal requests.
+            .requestMatchers(RequestMatcher { request -> SecurityUtils.isFrameworkInternalRequest(request) })
+            .permitAll()
 
-                // Allow all requests by logged in users.
-                .anyRequest().authenticated()
+            // Allow all requests by logged in users.
+            .anyRequest().authenticated()
 
-                // Configure the login page.
-                .and().formLogin()
-                .loginPage(LOGIN_URL).permitAll()
-                .loginProcessingUrl(LOGIN_PROCESSING_URL)
-                .failureUrl(LOGIN_FAILURE_URL)
+            // Configure the login page.
+            .and().formLogin()
+            .loginPage(LOGIN_URL).permitAll()
+            .loginProcessingUrl(LOGIN_PROCESSING_URL)
+            .failureUrl(LOGIN_FAILURE_URL)
 
-                // Remember Login
-                .and().rememberMe()
+            // Remember Login
+            .and().rememberMe()
 
-                // Configure logout
-                .and().logout().logoutSuccessUrl(LOGOUT_SUCCESS_URL)
+            // Configure logout
+            .and().logout().logoutSuccessUrl(LOGOUT_SUCCESS_URL)
     }
 
     @Bean
     public override fun userDetailsService(): UserDetailsService {
 
         val user = User.withUsername("user")
-                .password("{noop}password")
-                .roles("USER")
-                .build()
+            .password("{noop}password")
+            .roles("USER")
+            .build()
 
         return InMemoryUserDetailsManager(user)
     }
@@ -92,27 +92,27 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
 
         web.ignoring().antMatchers(
 
-                // Client-side JS
-                "/VAADIN/**",
+            // Client-side JS
+            "/VAADIN/**",
 
-                // the standard favicon URI
-                "/favicon.ico",
+            // the standard favicon URI
+            "/favicon.ico",
 
-                // the robots exclusion standard
-                "/robots.txt",
+            // the robots exclusion standard
+            "/robots.txt",
 
-                // web application manifest
-                "/manifest.webmanifest",
-                "/sw.js",
-                "/offline.html",
+            // web application manifest
+            "/manifest.webmanifest",
+            "/sw.js",
+            "/offline.html",
 
-                // icons and images
-                "/icons/**",
-                "/images/**",
-                "/styles/**",
+            // icons and images
+            "/icons/**",
+            "/images/**",
+            "/styles/**",
 
-                // (development mode) H2 debugging console
-                "/h2-console/**"
+            // (development mode) H2 debugging console
+            "/h2-console/**"
         )
     }
 }

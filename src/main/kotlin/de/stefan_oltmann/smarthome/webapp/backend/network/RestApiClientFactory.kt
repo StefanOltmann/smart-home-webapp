@@ -32,15 +32,15 @@ import javax.net.ssl.X509TrustManager
 object RestApiClientFactory {
 
     fun createRestApiClient(
-            baseUrl: String,
-            authCode: String
+        baseUrl: String,
+        authCode: String
     ): RestApi {
 
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .client(createHttpClient(authCode))
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .baseUrl(baseUrl)
+            .client(createHttpClient(authCode))
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         return retrofit.create(RestApi::class.java)
     }
@@ -115,9 +115,9 @@ object RestApiClientFactory {
             val originalRequest = chain.request()
 
             val modifiedRequest = originalRequest.newBuilder()
-                    .header(HEADER_KEY_AUTH_CODE, authCode)
-                    .method(originalRequest.method(), originalRequest.body())
-                    .build()
+                .header(HEADER_KEY_AUTH_CODE, authCode)
+                .method(originalRequest.method(), originalRequest.body())
+                .build()
 
             return chain.proceed(modifiedRequest)
         }

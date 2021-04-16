@@ -58,6 +58,6 @@ object SecurityUtils {
         val parameterValue = request.getParameter(ApplicationConstants.REQUEST_TYPE_PARAMETER) ?: return false
 
         return Stream.of(*ServletHelper.RequestType.values())
-                .anyMatch { r: ServletHelper.RequestType -> r.identifier == parameterValue }
+            .anyMatch { r: ServletHelper.RequestType -> r.identifier == parameterValue }
     }
 }

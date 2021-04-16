@@ -105,14 +105,14 @@ class DeviceForm(groups: List<DeviceGroup>) : FormLayout() {
      * Events
      */
     abstract class DeviceFormEvent protected constructor(source: DeviceForm, val device: Device?) :
-            ComponentEvent<DeviceForm>(source, false)
+        ComponentEvent<DeviceForm>(source, false)
 
     class SaveEvent internal constructor(source: DeviceForm, device: Device) : DeviceFormEvent(source, device)
     class DeleteEvent internal constructor(source: DeviceForm, device: Device) : DeviceFormEvent(source, device)
     class CloseEvent internal constructor(source: DeviceForm) : DeviceFormEvent(source, null)
 
     public override fun <T : ComponentEvent<*>?> addListener(
-            eventType: Class<T>, listener: ComponentEventListener<T>
+        eventType: Class<T>, listener: ComponentEventListener<T>
     ): Registration {
 
         return eventBus.addListener(eventType, listener)

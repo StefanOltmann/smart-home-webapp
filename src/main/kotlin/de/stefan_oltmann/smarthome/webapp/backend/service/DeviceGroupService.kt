@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class DeviceGroupService(
-        private val deviceGroupRepository: DeviceGroupRepository
+    private val deviceGroupRepository: DeviceGroupRepository
 ) {
 
     fun findAll(): List<DeviceGroup> = deviceGroupRepository.findAll()

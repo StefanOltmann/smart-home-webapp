@@ -42,10 +42,10 @@ import de.stefan_oltmann.smarthome.webapp.ui.views.list.ListView
 import java.util.*
 
 @PWA(
-        name = "Stefans Smart Home",
-        shortName = "Smart Home",
-        offlineResources = ["./styles/offline.css", "./images/offline.png"],
-        enableInstallPrompt = true
+    name = "Stefans Smart Home",
+    shortName = "Smart Home",
+    offlineResources = ["./styles/offline.css", "./images/offline.png"],
+    enableInstallPrompt = true
 )
 @CssImport("./styles/shared-styles.css")
 class MainLayout : AppLayout() {
@@ -140,8 +140,8 @@ class MainLayout : AppLayout() {
 
     private fun createMenuItems(): Array<Component> {
         return arrayOf(
-                createTab("Devices", ListView::class.java),
-                createTab("Dashboard", DashboardView::class.java)
+            createTab("Devices", ListView::class.java),
+            createTab("Dashboard", DashboardView::class.java)
         )
     }
 
@@ -156,7 +156,7 @@ class MainLayout : AppLayout() {
 
     private fun getTabForComponent(component: Component): Optional<Tab> {
         return menu.children
-                .filter { tab -> (ComponentUtil.getData(tab, Class::class.java) == component.javaClass) }
-                .findFirst().map { firstComponent -> Tab::class.java.cast(firstComponent) }
+            .filter { tab -> (ComponentUtil.getData(tab, Class::class.java) == component.javaClass) }
+            .findFirst().map { firstComponent -> Tab::class.java.cast(firstComponent) }
     }
 }

@@ -33,8 +33,8 @@ import javax.annotation.PostConstruct
 
 @Service
 class DeviceService(
-        private val deviceRepository: DeviceRepository,
-        private val deviceGroupRepository: DeviceGroupRepository
+    private val deviceRepository: DeviceRepository,
+    private val deviceGroupRepository: DeviceGroupRepository
 ) {
 
     companion object {
@@ -128,28 +128,28 @@ class DeviceService(
 
         if (deviceGroupRepository.count() == 0L) {
             deviceGroupRepository.saveAll(
-                    Stream.of("Kitchen", "Living Room", "Bedroom")
-                            .map { name: String? -> DeviceGroup(name!!) }
-                            .collect(Collectors.toList()))
+                Stream.of("Kitchen", "Living Room", "Bedroom")
+                    .map { name: String? -> DeviceGroup(name!!) }
+                    .collect(Collectors.toList()))
         }
 
         if (deviceRepository.count() == 0L) {
             val r = Random(0)
             val deviceGroups = deviceGroupRepository.findAll()
             deviceRepository.saveAll(
-                    Stream.of(
-                            "Switch 1", "Switch 2", "Switch 3", "Switch 4",
-                            "Dimmer 1", "Dimmer 2", "Dimmer 3", "Dimmer 4", "Dimmer 5",
-                            "Roller shutter 1", "Roller shutter 2"
-                    )
-                            .map { name: String ->
-                                val id = name.toLowerCase().replace(" ".toRegex(), "_")
-                                val device = Device(id)
-                                device.name = name
-                                device.group = deviceGroups[r.nextInt(deviceGroups.size)]
-                                device.type = DeviceType.values()[r.nextInt(DeviceType.values().size)]
-                                device
-                            }.collect(Collectors.toList())
+                Stream.of(
+                    "Switch 1", "Switch 2", "Switch 3", "Switch 4",
+                    "Dimmer 1", "Dimmer 2", "Dimmer 3", "Dimmer 4", "Dimmer 5",
+                    "Roller shutter 1", "Roller shutter 2"
+                )
+                    .map { name: String ->
+                        val id = name.toLowerCase().replace(" ".toRegex(), "_")
+                        val device = Device(id)
+                        device.name = name
+                        device.group = deviceGroups[r.nextInt(deviceGroups.size)]
+                        device.type = DeviceType.values()[r.nextInt(DeviceType.values().size)]
+                        device
+                    }.collect(Collectors.toList())
             )
         }
     }

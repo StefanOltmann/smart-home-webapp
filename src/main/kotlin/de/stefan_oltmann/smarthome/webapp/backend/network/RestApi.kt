@@ -44,8 +44,8 @@ interface RestApi {
      */
     @GET("/device/{deviceId}/set/power-state/value/{powerState}")
     fun setDevicePowerState(
-            @Path("deviceId") deviceId: String,
-            @Path("powerState") powerState: DevicePowerState
+        @Path("deviceId") deviceId: String,
+        @Path("powerState") powerState: DevicePowerState
     ): Call<Unit>
 
     /**
@@ -53,8 +53,8 @@ interface RestApi {
      */
     @GET("/device/{deviceId}/set/percentage/value/{percentage}")
     fun setDevicePercentage(
-            @Path("deviceId") deviceId: String,
-            @Path("percentage") percentage: Int
+        @Path("deviceId") deviceId: String,
+        @Path("percentage") percentage: Int
     ): Call<Unit>
 
     /**
@@ -62,8 +62,8 @@ interface RestApi {
      */
     @GET("/device/{deviceId}/set/target-temperature/value/{targetTemperature}")
     fun setDeviceTargetTemperature(
-            @Path("deviceId") deviceId: String,
-            @Path("targetTemperature") targetTemperature: Int
+        @Path("deviceId") deviceId: String,
+        @Path("targetTemperature") targetTemperature: Int
     ): Call<Unit>
 
 }

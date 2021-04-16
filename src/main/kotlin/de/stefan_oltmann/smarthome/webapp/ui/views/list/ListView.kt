@@ -43,8 +43,8 @@ import org.springframework.stereotype.Component
 @Route(value = "", layout = MainLayout::class)
 @PageTitle("Devices")
 class ListView(
-        private val deviceService: DeviceService,
-        private val deviceGroupService: DeviceGroupService
+    private val deviceService: DeviceService,
+    private val deviceGroupService: DeviceGroupService
 ) : VerticalLayout() {
 
     private val form: DeviceForm
@@ -154,8 +154,8 @@ class ListView(
     }
 
     private fun createRightClickMenu(
-            deviceBox: DeviceBoxLayout,
-            device: Device
+        deviceBox: DeviceBoxLayout,
+        device: Device
     ) {
 
         val contextMenu = ContextMenu()
