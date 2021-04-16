@@ -157,6 +157,6 @@ class MainLayout : AppLayout() {
     private fun getTabForComponent(component: Component): Optional<Tab> {
         return menu.children
                 .filter { tab -> (ComponentUtil.getData(tab, Class::class.java) == component.javaClass) }
-                .findFirst().map { component -> Tab::class.java.cast(component) }
+                .findFirst().map { firstComponent -> Tab::class.java.cast(firstComponent) }
     }
 }
