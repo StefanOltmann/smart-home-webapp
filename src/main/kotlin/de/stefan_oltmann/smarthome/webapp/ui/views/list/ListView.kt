@@ -92,8 +92,6 @@ class ListView(
 
         updateList()
         closeEditor()
-
-
     }
 
     private fun deleteDevice(event: DeviceForm.DeleteEvent) {

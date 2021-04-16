@@ -26,5 +26,7 @@ import com.vaadin.flow.component.dependency.NpmPackage
 @NpmPackage(value = "@polymer/paper-toggle-button", version = "3.0.1")
 @JsModule("@polymer/paper-toggle-button/paper-toggle-button.js")
 class ToggleButton : AbstractSinglePropertyField<ToggleButton, Boolean>(
-    "checked", false, false
+    "checked",
+    false,
+    false
 )

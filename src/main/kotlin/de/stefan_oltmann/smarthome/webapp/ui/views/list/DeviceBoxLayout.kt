@@ -42,15 +42,6 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
 
     private var listenerSilent = false
 
-    companion object {
-
-        private const val BOX_SIZE_PX = 160
-        private const val ICON_SIZE_PX = 48
-
-        private const val TEMPERATURE_STEP = 1
-        private const val PERCENT_STEP = 10
-    }
-
     init {
 
         className = "device-box"
@@ -189,5 +180,14 @@ class DeviceBoxLayout(device: Device, callback: DeviceStateChangeCallback) : Ver
         currentTargetTemperature = targetTemperature.roundToInt()
 
         statusTextSpan.text = "$currentTargetTemperature °C"
+    }
+
+    companion object {
+
+        private const val BOX_SIZE_PX = 160
+        private const val ICON_SIZE_PX = 48
+
+        private const val TEMPERATURE_STEP = 1
+        private const val PERCENT_STEP = 10
     }
 }

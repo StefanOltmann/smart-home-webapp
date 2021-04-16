@@ -37,11 +37,9 @@ object SecurityUtils {
     val isUserLoggedIn: Boolean
         get() {
 
-            val authentication = SecurityContextHolder.getContext().authentication
+            val auth = SecurityContextHolder.getContext().authentication
 
-            return (authentication != null
-                    && authentication !is AnonymousAuthenticationToken
-                    && authentication.isAuthenticated)
+            return auth != null && auth !is AnonymousAuthenticationToken && auth.isAuthenticated
         }
 
     /**

@@ -81,7 +81,7 @@ class MainLayout : AppLayout() {
         val overflow = Button(Icon(VaadinIcon.ELLIPSIS_DOTS_V))
         overflow.className = "overflow-button"
 
-        //layout.add(new Image("images/user.svg", "Avatar"));
+        // layout.add(new Image("images/user.svg", "Avatar"));
         val gap = Div()
         gap.className = "fill-remaining-space"
         layout.add(gap, overflow)

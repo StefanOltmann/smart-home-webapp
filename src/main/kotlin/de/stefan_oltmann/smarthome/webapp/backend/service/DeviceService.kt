@@ -101,7 +101,6 @@ class DeviceService(
             logger.log(Level.SEVERE, "Device has no ID: $device")
     }
 
-
     fun setDeviceTargetTemperature(device: Device, targetTemperature: Int) {
 
         val deviceId = device.id
