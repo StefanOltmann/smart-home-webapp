@@ -5,11 +5,20 @@ plugins {
     id "org.springframework.boot" version "$springBootVersion"
     id "io.spring.dependency-management" version "$springDependencyManagementVersion"
     id "me.qoomon.git-versioning" version "$gitVersioningVersion"
+    id "org.sonarqube" version "3.1.1"
 }
 
 description "Stefans Smart Home WebApp"
 group "de.stefan_oltmann.smarthome.webapp"
 version "0.0.0"
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "StefanOltmann_smart-home-webapp"
+    property "sonar.organization", "stefanoltmann"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
 
 gitVersioning.apply {
     branch {
