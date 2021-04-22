@@ -6,6 +6,7 @@ plugins {
     id "io.spring.dependency-management" version "$springDependencyManagementVersion"
     id "me.qoomon.git-versioning" version "$gitVersioningVersion"
     id "org.sonarqube" version "3.1.1"
+    id "io.gitlab.arturbosch.detekt" version "1.16.0"
 }
 
 description "Stefans Smart Home WebApp"
