@@ -5,6 +5,8 @@ plugins {
     id "org.springframework.boot" version "$springBootVersion"
     id "io.spring.dependency-management" version "$springDependencyManagementVersion"
     id "me.qoomon.git-versioning" version "$gitVersioningVersion"
+    id "io.gitlab.arturbosch.detekt" version "$detektVersion"
+    id "org.sonarqube" version "$sonarqubeVersion"
 }
 
 description "Stefans Smart Home WebApp"
@@ -21,6 +23,27 @@ gitVersioning.apply {
         versionFormat = '${tagVersion}'
     }
 }
+
+detekt {
+    allRules = true
+    config = files("$projectDir/detekt.yml")
+
+    // Don't break the build. Just report.
+    ignoreFailures = true
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "StefanOltmann_smart-home-webapp"
+        property "sonar.organization", "stefanoltmann"
+        property "sonar.host.url", "https://sonarcloud.io"
+        // Include Detekt issues
+        property "sonar.kotlin.detekt.reportPaths", "build/reports/detekt/detekt.xml"
+    }
+}
+
+// SonarQube should always contain Detekt issues
+tasks.findByPath(':sonarqube').dependsOn('detekt')
 
 defaultTasks("clean", "build")
 
