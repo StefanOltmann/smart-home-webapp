@@ -77,6 +77,7 @@ tasks.withType(JavaCompile) {
 }
 
 repositories {
+    jcenter() // for Detekt
     mavenLocal()
     mavenCentral()
 }
