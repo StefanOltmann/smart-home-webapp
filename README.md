@@ -1,7 +1,7 @@
 # Stefans Smart Home WebApp
 
 [![CI](https://github.com/StefanOltmann/smart-home-webapp/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/StefanOltmann/smart-home-webapp/actions/workflows/ci.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/stefanoltmann/smart-home-webapp/badge)](https://www.codefactor.io/repository/github/stefanoltmann/smart-home-webapp)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=StefanOltmann_smart-home-webapp&metric=alert_status)](https://sonarcloud.io/dashboard?id=StefanOltmann_smart-home-webapp)
 
 **PROTOYPE**
 
