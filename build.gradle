@@ -4,7 +4,7 @@ buildscript {
         // Must be defined here instead of "gradle.properties" because of
         // https://github.com/dependabot/dependabot-core/issues/1618
         detektVersion = '1.16.0'
-        gitVersioningVersion = '2.1.1'
+        gitVersioningVersion = '4.2.0'
         kotlinVersion = '1.4.31'
         retrofitVersion = '2.9.0'
         sonarqubeVersion = '3.1.1'
