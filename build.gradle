@@ -34,7 +34,8 @@ detekt {
 
 sonarqube {
     properties {
-        property "sonar.projectKey", "StefanOltmann_smart-home-webapp"
+        property "sonar.projectKey", "smart-home-webapp"
+        property "sonar.projectName", "Stefans Smart WebApp"
         property "sonar.organization", "stefanoltmann"
         property "sonar.host.url", "https://sonarcloud.io"
         // Include Detekt issues
