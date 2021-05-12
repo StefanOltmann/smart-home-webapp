@@ -11,7 +11,7 @@ buildscript {
         springBootVersion = '2.2.4.RELEASE'
         springDependencyManagementVersion = '1.0.9.RELEASE'
         vaadinPluginVersion = '0.14.3.7'
-        vaadinVersion = '14.3.7'
+        vaadinVersion = '19.0.7'
     }
 }
 
