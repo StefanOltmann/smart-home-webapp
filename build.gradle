@@ -5,7 +5,7 @@ buildscript {
         // https://github.com/dependabot/dependabot-core/issues/1618
         detektVersion = '1.16.0'
         gitVersioningVersion = '2.1.1'
-        kotlinVersion = '1.4.31'
+        kotlinVersion = '1.5.0'
         retrofitVersion = '2.9.0'
         sonarqubeVersion = '3.1.1'
         springBootVersion = '2.2.4.RELEASE'
