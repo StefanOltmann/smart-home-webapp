@@ -9,7 +9,7 @@ buildscript {
         retrofitVersion = '2.9.0'
         sonarqubeVersion = '3.1.1'
         springBootVersion = '2.2.4.RELEASE'
-        springDependencyManagementVersion = '1.0.9.RELEASE'
+        springDependencyManagementVersion = '1.0.11.RELEASE'
         vaadinPluginVersion = '0.14.3.7'
         vaadinVersion = '14.3.7'
     }
